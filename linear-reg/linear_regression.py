@@ -42,11 +42,10 @@ class LinearRegression:
     
     def mean_squared_error(self, test, prediction):
         test_length = len(test)
-        test = test.tolist()
-        mse = 0
-        for i in range(test_length):
-            mse = mse + ((test[i] - prediction[i]) ** 2)
-
+        test = np.array(test)
+        prediction = np.array(prediction)
+        squared_difference = ((test - prediction) ** 2)
+        mse = np.sum(squared_difference)
         mse /= test_length
         return mse
     
