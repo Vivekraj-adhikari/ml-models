@@ -49,6 +49,15 @@ class LinearRegression:
         mse /= test_length
         return mse
     
+    def model_score(self, test, prediction):
+        test = np.array(test)
+        prediction = np.array(prediction)
+        mean = np.mean(test)
+        tss = np.sum(((test - mean) ** 2))
+        rss = np.sum((test - prediction) ** 2)
+        score = 1 - (rss / tss)
+        return score
+    
 
 
         

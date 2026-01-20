@@ -20,5 +20,7 @@ model.fit(X_train, Y_train)
 
 prediction = model.predict(X_test)
 mse = model.mean_squared_error(Y_test, prediction)
+score = model.model_score(Y_test, prediction)
 print(f"Mean Squared Error: {np.sqrt(mse)}")
+print(f"Model Score: {score}")
 print(prediction)
