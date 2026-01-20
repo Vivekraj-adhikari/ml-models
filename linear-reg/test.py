@@ -8,13 +8,17 @@ Y = age_height_df['Height(cm)']
 
 # age_height_df.info()
 X = np.reshape(X,(-1, 1))
+X_train = X[0:80]
+X_test = X[80:]
+
+Y_train = Y[0:80]
+Y_test = Y[80:]
 # print(X)
 model = LinearRegression()
 
-model.fit(X, Y)
+model.fit(X_train, Y_train)
 
-test = [30, 40, 21, 34]
-test = np.reshape(test, (-1, 1))
-
-prediction = model.predict(test)
+prediction = model.predict(X_test)
+mse = model.mean_squared_error(Y_test, prediction)
+print(f"Mean Squared Error: {np.sqrt(mse)}")
 print(prediction)

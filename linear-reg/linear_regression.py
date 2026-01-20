@@ -40,6 +40,16 @@ class LinearRegression:
             test_prediction.append(round(float(y), 3))
         return test_prediction
     
+    def mean_squared_error(self, test, prediction):
+        test_length = len(test)
+        test = test.tolist()
+        mse = 0
+        for i in range(test_length):
+            mse = mse + ((test[i] - prediction[i]) ** 2)
+
+        mse /= test_length
+        return mse
+    
 
 
         
